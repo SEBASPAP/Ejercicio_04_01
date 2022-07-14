@@ -296,15 +296,7 @@ public class PerVentana extends javax.swing.JInternalFrame {
                 params[0] = nombrePer;
                 params[1] = funcionPer;
                 params[2] = generoMof;
-
-               // try {
-                    personajeCtrl.crear(codigo, params, actorCtrl.buscar(codigo), peliculaCtrl.buscar(codigo));
-                 //   JOptionPane.showMessageDialog(this, "Pelicula registrada", "CREAR", JOptionPane.INFORMATION_MESSAGE);
-
-                //} catch (RuntimeException e) {
-                 //   JOptionPane.showMessageDialog(this, e.getMessage(), "CREA", JOptionPane.ERROR_MESSAGE);
-               // }
-                
+                personajeCtrl.crear(codigo, params, actorCtrl.buscar(codigo), peliculaCtrl.buscar(codigo));
             }
         }
 
