@@ -52,7 +52,6 @@ public class PersonajeServicio implements IPersonajeServicio {
         return null;
     }
     
-    
     @Override
     public Personaje buscar(String actor, String pelicula) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
