@@ -19,14 +19,7 @@ public class PersonajeServicio implements IPersonajeServicio {
 
     @Override
     public Personaje crear(Personaje personaje) {
-        
-        var personajeBuscando = this.buscar(personaje.getNombrePer(),personaje.getFuncionPer());
-        if(personajeBuscando==null){
             this.personajeList.add(personaje);
-        }else{
-            throw new RuntimeException("El nombre inngresado ya se encuentra "+
-                                       "asignado al personaje: "+personajeBuscando.getNombrePer());
-        }
         return personaje;
     }
 
@@ -58,10 +51,10 @@ public class PersonajeServicio implements IPersonajeServicio {
         }
         return null;
     }
-
+    
+    
     @Override
     public Personaje buscar(String actor, String pelicula) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-
 }

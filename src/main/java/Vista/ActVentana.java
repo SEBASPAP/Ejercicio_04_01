@@ -240,10 +240,17 @@ public class ActVentana extends javax.swing.JInternalFrame {
     private void btncrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncrearActionPerformed
         String nombre = txtnombre.getText();
         String nacionalidad = txtnacionalidad.getText();
+        int codigo = 0;
+        int fecha = 0;
+        int edad = 0;
 
-        int fecha = Integer.parseInt(txtfecha.getText());
-        int edad = Integer.parseInt(txtedad.getText());
-        int codigo = Integer.parseInt(txtcodigo.getText());
+//        try {
+//            fecha = Integer.parseInt(txtfecha.getText());
+//            edad = Integer.parseInt(txtedad.getText());
+//            codigo = Integer.parseInt(txtcodigo.getText());
+//        } catch (RuntimeException e) {
+//            JOptionPane.showMessageDialog(this, "Dato invalido", "CREAR", JOptionPane.ERROR_MESSAGE);
+//        }
         Actor actor = new Actor(codigo, nombre, nacionalidad, fecha, edad);
 
         if (!nombre.isBlank() && !nacionalidad.isBlank() && !txtfecha.getText().isBlank() && !txtedad.getText().isBlank() && !txtcodigo.getText().isBlank()) {
@@ -251,20 +258,41 @@ public class ActVentana extends javax.swing.JInternalFrame {
             String[] params = new String[2];
             params[0] = nombre;
             params[1] = nacionalidad;
+
             try {
-                actorCtrl.crear(codigo, params, fecha, edad);
-                JOptionPane.showMessageDialog(this, "Actor registrado", "CREAR", JOptionPane.INFORMATION_MESSAGE);
+                fecha = Integer.parseInt(txtfecha.getText());
+                edad = Integer.parseInt(txtedad.getText());
+                codigo = Integer.parseInt(txtcodigo.getText());
+                try {
+                    actorCtrl.crear(codigo, params, fecha, edad);
+                    JOptionPane.showMessageDialog(this, "Actor registrado", "CREAR", JOptionPane.INFORMATION_MESSAGE);
+                    txtnombre.setText("");
+                    txtnacionalidad.setText("");
+                    txtfecha.setText("");
+                    txtedad.setText("");
+                    txtcodigo.setText("");
+                } catch (RuntimeException e) {
+                    JOptionPane.showMessageDialog(this, e.getMessage(), "CREAR", JOptionPane.ERROR_MESSAGE);
+                }
             } catch (RuntimeException e) {
-                JOptionPane.showMessageDialog(this, e.getMessage(), "CREAR", JOptionPane.ERROR_MESSAGE);
+
+                JOptionPane.showMessageDialog(this, "Dato numerico invalido, porfavor revise fecha de nacieminto,edad o codigo", "CREAR", JOptionPane.ERROR_MESSAGE);
             }
-            
+//            try {
+//                actorCtrl.crear(codigo, params, fecha, edad);
+//                JOptionPane.showMessageDialog(this, "Actor registrado", "CREAR", JOptionPane.INFORMATION_MESSAGE);
+//                txtnombre.setText("");
+//                txtnacionalidad.setText("");
+//                txtfecha.setText("");
+//                txtedad.setText("");
+//                txtcodigo.setText("");
+//            } catch (RuntimeException e) {
+//                JOptionPane.showMessageDialog(this, e.getMessage(), "CREAR", JOptionPane.ERROR_MESSAGE);
+//            }
+
         }
 
-        txtnombre.setText("");
-        txtnacionalidad.setText("");
-        txtfecha.setText("");
-        txtedad.setText("");
-        txtcodigo.setText("");
+
     }//GEN-LAST:event_btncrearActionPerformed
 
 

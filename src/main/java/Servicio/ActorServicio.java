@@ -23,7 +23,7 @@ public class ActorServicio implements IActorServicio {
         if(actorBuscando==null){
             this.actorList.add(actor);
         }else{
-            throw new RuntimeException("El Codigo inngresado ya se encuentra "+
+            throw new RuntimeException("El Codigo inngresado ya se encu entra "+
                                        "asignado al actor : "+actorBuscando.getNombre());
         }
         return actor;

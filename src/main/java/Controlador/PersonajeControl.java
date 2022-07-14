@@ -20,7 +20,7 @@ public class PersonajeControl {
 
     private final PersonajeServicio personajeServicio = new PersonajeServicio();
    
-    public Personaje crear(int codigo,String [] params,Actor actor,Pelicula pelicula) throws RuntimeException{
+    public Personaje crear(int codigo,String [] params,Actor actor,Pelicula pelicula){
         var personaje = new Personaje(codigo,params[0],params[1],params[2],actor,pelicula); 
         this.personajeServicio.crear(personaje);
         return personaje;
