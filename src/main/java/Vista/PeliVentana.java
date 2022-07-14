@@ -238,9 +238,8 @@ public class PeliVentana extends javax.swing.JInternalFrame {
         String nombre = txtnombre.getText();
         String genero = txtgenero.getText();
         String pais = txtpais.getText();
-
-        int codigo = Integer.parseInt(txtnombreactor.getText());
-        int fecha = Integer.parseInt(txtfecha.getText());
+        int fecha = 0;
+        int codigo = 0;
 
         Pelicula pelicula = new Pelicula(codigo, nombre, genero, pais, fecha);
 
@@ -249,22 +248,26 @@ public class PeliVentana extends javax.swing.JInternalFrame {
             params[0] = nombre;
             params[1] = genero;
             params[2] = pais;
+
             try {
-                peliculaCtrl.crear(codigo, params, fecha);
-                JOptionPane.showMessageDialog(this, "Pelicula registrada", "CREAR", JOptionPane.INFORMATION_MESSAGE);
+                codigo = Integer.parseInt(txtnombreactor.getText());
+                fecha = Integer.parseInt(txtfecha.getText());
+                try {
+                    peliculaCtrl.crear(codigo, params, fecha);
+                    JOptionPane.showMessageDialog(this, "Pelicula registrada", "CREAR", JOptionPane.INFORMATION_MESSAGE);
+                    txtnombre.setText("");
+                    txtnombreactor.setText("");
+                    txtgenero.setText("");
+                    txtpais.setText("");
+                    txtfecha.setText("");
+                } catch (RuntimeException e) {
+                    JOptionPane.showMessageDialog(this, e.getMessage(), "CREA", JOptionPane.ERROR_MESSAGE);
+                }
 
             } catch (RuntimeException e) {
-                JOptionPane.showMessageDialog(this, e.getMessage(), "CREA", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Dato numerico invalido, porfavor revise fecha de publicacion o codigo", "CREAR", JOptionPane.ERROR_MESSAGE);
             }
         }
-
-        txtnombre.setText("");
-        txtnombreactor.setText("");
-        txtgenero.setText("");
-        txtpais.setText("");
-        txtfecha.setText("");
-
-
     }//GEN-LAST:event_btncrearActionPerformed
 
 
