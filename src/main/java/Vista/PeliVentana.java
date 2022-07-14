@@ -195,36 +195,36 @@ public class PeliVentana extends javax.swing.JInternalFrame {
 
     private void btnlistarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlistarActionPerformed
 
-        String nombre = txtnombre.getText();
-        String genero = txtgenero.getText();
-        String pais = txtpais.getText();
-        //String codigo = txtnombreactor.getText();
-        int codigo = 0;
-        int fecha = 0;
-        try {
-            fecha = Integer.parseInt(txtfecha.getText());
-            codigo = Integer.parseInt(txtnombreactor.getText());
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-
-        Pelicula pelicula = new Pelicula(codigo, nombre, genero, pais, fecha);
-
-        if (!nombre.isBlank() && !genero.isBlank() && !pais.isBlank() && !txtfecha.getText().isBlank()) {
-            String[] params = new String[3];
-            params[0] = nombre;
-            params[1] = genero;
-            params[2] = pais;
-
-            peliculaCtrl.crear(codigo, params, fecha);
-        }
+//        String nombre = txtnombre.getText();
+//        String genero = txtgenero.getText();
+//        String pais = txtpais.getText();
+//        //String codigo = txtnombreactor.getText();
+//        int codigo = 0;
+//        int fecha = 0;
+//        try {
+//            fecha = Integer.parseInt(txtfecha.getText());
+//            codigo = Integer.parseInt(txtnombreactor.getText());
+//        } catch (Exception e) {
+//            System.out.println(e);
+//        }
+//
+//        Pelicula pelicula = new Pelicula(codigo, nombre, genero, pais, fecha);
+//
+//        if (!nombre.isBlank() && !genero.isBlank() && !pais.isBlank() && !txtfecha.getText().isBlank()) {
+//            String[] params = new String[3];
+//            params[0] = nombre;
+//            params[1] = genero;
+//            params[2] = pais;
+//
+//            peliculaCtrl.crear(codigo, params, fecha);
+//        }
 
         cargarPeliculaTabla();
-        txtnombre.setText("");
-        txtnombreactor.setText("");
-        txtgenero.setText("");
-        txtpais.setText("");
-        txtfecha.setText("");
+//        txtnombre.setText("");
+//        txtnombreactor.setText("");
+//        txtgenero.setText("");
+//        txtpais.setText("");
+//        txtfecha.setText("");
 
         JOptionPane.showMessageDialog(null, "Datos Ingresados Correctamente");
     }//GEN-LAST:event_btnlistarActionPerformed

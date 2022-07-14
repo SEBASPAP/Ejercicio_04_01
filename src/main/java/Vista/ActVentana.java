@@ -188,37 +188,39 @@ public class ActVentana extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnlistarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlistarActionPerformed
-        String nombre = txtnombre.getText();
-        String nacionalidad = txtnacionalidad.getText();
-        int codigo = 0;
-        int fecha = 0;
-        int edad = 0;
-
-        try {
-            fecha = Integer.parseInt(txtfecha.getText());
-            edad = Integer.parseInt(txtedad.getText());
-            codigo = Integer.parseInt(txtcodigo.getText());
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-
-        Actor actor = new Actor(codigo, nombre, nacionalidad, fecha, edad);
-
-        if (!nombre.isBlank() && !nacionalidad.isBlank() && !txtfecha.getText().isBlank() && !txtedad.getText().isBlank() && !txtcodigo.getText().isBlank()) {
-            String[] params = new String[2];
-            params[0] = nombre;
-            params[1] = nacionalidad;
-
-            actorCtrl.crear(codigo, params, fecha, edad);
-
-        }
+//        String nombre = txtnombre.getText();
+//        String nacionalidad = txtnacionalidad.getText();
+//        int codigo = 0;
+//        int fecha = 0;
+//        int edad = 0;
+//
+//        try {
+//            fecha = Integer.parseInt(txtfecha.getText());
+//            edad = Integer.parseInt(txtedad.getText());
+//            codigo = Integer.parseInt(txtcodigo.getText());
+//        } catch (Exception e) {
+//            System.out.println(e);
+//        }
+//
+//        Actor actor = new Actor(codigo, nombre, nacionalidad, fecha, edad);
+//
+//        if (!nombre.isBlank() && !nacionalidad.isBlank() && !txtfecha.getText().isBlank() && !txtedad.getText().isBlank() && !txtcodigo.getText().isBlank()) {
+//            String[] params = new String[2];
+//            params[0] = nombre;
+//            params[1] = nacionalidad;
+//
+//            actorCtrl.crear(codigo, params, fecha, edad);
+//
+//        }
         cargarActorTabla();
-        txtnombre.setText("");
-        txtnacionalidad.setText("");
-        txtfecha.setText("");
-        txtedad.setText("");
-
         JOptionPane.showMessageDialog(null, "Datos Ingresados Correctamente");
+
+//        txtnombre.setText("");
+//        txtnacionalidad.setText("");
+//        txtfecha.setText("");
+//        txtedad.setText("");
+//        txtcodigo.setText("");
+
     }//GEN-LAST:event_btnlistarActionPerformed
 
     private void TablaActorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablaActorMouseClicked

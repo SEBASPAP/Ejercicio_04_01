@@ -247,37 +247,41 @@ public class PerVentana extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
-        int codigo = 0;
-        String nombrePe = txtnomper.getText();
-        String funcionPer = txtrol.getText();
-        String generoMof = txtgenero.getText();
-
-        try {
-            codigo = Integer.parseInt(txtnombre.getText());
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-
-        Personaje personaje = new Personaje(codigo, nombrePe, funcionPer, generoMof);
-
-        if (!txtnombre.getText().isBlank() && !funcionPer.isBlank() && !generoMof.isBlank() && !nombrePe.isBlank()) {
-            if (!actorCtrl.buscar(codigo).equals(null) && !peliculaCtrl.buscar(codigo).equals(null)) {
-                String[] params = new String[3];
-                params[0] = nombrePe;
-                params[1] = funcionPer;
-                params[2] = generoMof;
-
-                personajeCtrl.crear(codigo, params, actorCtrl.buscar(codigo), peliculaCtrl.buscar(codigo));
+//        int codigo = 0;
+//        String nombrePe = txtnomper.getText();
+//        String funcionPer = txtrol.getText();
+//        String generoMof = txtgenero.getText();
+//
+//        try {
+//            codigo = Integer.parseInt(txtnombre.getText());
+//        } catch (Exception e) {
+//            System.out.println(e);
+//        }
+//
+//        Personaje personaje = new Personaje(codigo, nombrePe, funcionPer, generoMof);
+//
+//        if (!txtnombre.getText().isBlank() && !funcionPer.isBlank() && !generoMof.isBlank() && !nombrePe.isBlank()) {
+//            if (!actorCtrl.buscar(codigo).equals(null) && !peliculaCtrl.buscar(codigo).equals(null)) {
+//                String[] params = new String[3];
+//                params[0] = nombrePe;
+//                params[1] = funcionPer;
+//                params[2] = generoMof;
+//
+//                personajeCtrl.crear(codigo, params, actorCtrl.buscar(codigo), peliculaCtrl.buscar(codigo));
+//            }
+//        }
+            try{
+                cargarPersonajeTablatelf();
+            }catch(RuntimeException e){
+                JOptionPane.showMessageDialog(null, "Datos Ingresados Correctamente");
             }
-        }
+        
+//        txtnombre.setText("");
+//        txtnomper.setText("");
+//        txtrol.setText("");
+//        txtgenero.setText("");
 
-        cargarPersonajeTablatelf();
-        txtnombre.setText("");
-        txtnomper.setText("");
-        txtrol.setText("");
-        txtgenero.setText("");
-
-        JOptionPane.showMessageDialog(null, "Datos Ingresados Correctamente");
+        
         //JOptionPane.showMessageDialog(null, "Datos Ingresados Correctamente", "Datos Ingresados Correctamente", JOptionPane.WARNING_MESSAGE);
     }//GEN-LAST:event_btnListarActionPerformed
 
