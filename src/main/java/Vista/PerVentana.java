@@ -105,6 +105,7 @@ public class PerVentana extends javax.swing.JInternalFrame {
         btnmodificar = new javax.swing.JButton();
         btneliminar = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(0, 255, 204));
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
@@ -270,18 +271,13 @@ public class PerVentana extends javax.swing.JInternalFrame {
 //                personajeCtrl.crear(codigo, params, actorCtrl.buscar(codigo), peliculaCtrl.buscar(codigo));
 //            }
 //        }
-            try{
-                cargarPersonajeTablatelf();
-            }catch(RuntimeException e){
-                JOptionPane.showMessageDialog(null, "Datos Ingresados Correctamente");
-            }
-        
+        cargarPersonajeTablatelf();
+        JOptionPane.showMessageDialog(null, "Datos Ingresados Correctamente");
+
 //        txtnombre.setText("");
 //        txtnomper.setText("");
 //        txtrol.setText("");
 //        txtgenero.setText("");
-
-        
         //JOptionPane.showMessageDialog(null, "Datos Ingresados Correctamente", "Datos Ingresados Correctamente", JOptionPane.WARNING_MESSAGE);
     }//GEN-LAST:event_btnListarActionPerformed
 
